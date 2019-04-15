@@ -8,5 +8,36 @@ html,
 body {
     width: 100%;
     height: 100%;
+}
+
+img {
+    width: 100%;
+}
+
+.wrap {
+    width: 100%;
+    height: 100%;
+    background: #999;
+}
+
+.wrap .head {
+    width: 100%;
+    height: 44px;
+    line-height: 44px;
+    display: flex;
+    justify-content: space-around;
     background: red;
+    color: #fff;
+    font-weight: blod;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 250px;
+}
+
+.swiper-slide {
+    width: 100%;
+    height: 250px;
+    text-align: center;
 }
