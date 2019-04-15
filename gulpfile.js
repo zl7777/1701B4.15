@@ -2,13 +2,14 @@
  * @Author: mikey.zhanglei 
  * @Date: 2019-04-15 08:59:48 
  * @Last Modified by: mikey.zhanglei
- * @Last Modified time: 2019-04-15 09:08:44
+ * @Last Modified time: 2019-04-15 09:19:10
  */
 var gulp = require('gulp');
 var server = require('gulp-webserver');
 var miniCss = require('gulp-clean-css');
 var miniScript = require('gulp-uglify');
 var miniImg = require('gulp-imagemin');
+var livereload = require('gulp-livereload');
 
 //开启服务
 gulp.task('webserver', () => {
@@ -16,7 +17,8 @@ gulp.task('webserver', () => {
         .pipe(server({
             host: 'localhost',
             port: 8080,
-            open: true
+            open: true,
+            livereload: true
 
         }))
 })
@@ -44,6 +46,9 @@ gulp.task('miniImg', () => {
 })
 
 //监听
-// gulp.task('watch',
-//     gulp.watch('./src/css/*.css', gulp.series('css'))
-// )
+gulp.task('watch', () => {
+    return gulp.watch('./src/css/*.css')
+})
+
+
+gulp.task('dev', gulp.series('webserver', 'miniCss', 'watch'))
